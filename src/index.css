@@ -1,0 +1,66 @@
+:root{
+  --primary: #222222;
+  --secondary: #7B7B7B;
+  --tertiary: #F8F8F8;
+}
+
+@font-face {
+  font-family: 'aeonik';
+  src: url(./assets/fonts/fonnts.com-Aeonik-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'aeonik-bold';
+  src: url(./assets/fonts//fonnts.com-Aeonik-Bold.ttf);
+}
+
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes fade-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
