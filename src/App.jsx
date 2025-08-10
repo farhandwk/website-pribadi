@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Home from "./components/Home.jsx"
 import About from "./components/About.jsx"
+import Certificate from './components/Certificate.jsx'
 import Portfolio from './components/Portfolio.jsx'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <main>
         <Home onScrollClick={handleHomeButton}></Home>
         <About ref={aboutRef}></About>
+        <Certificate/>
         <Portfolio></Portfolio>
       </main>
     </>

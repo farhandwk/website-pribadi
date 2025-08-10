@@ -8,8 +8,6 @@ import nodejs from "../assets/skills/nodejs.png"
 import react from "../assets/skills/react.png"
 import Certificate from './Certificate'
 
-import dataAnalyst_udemy from "../assets/certificates/data-analyst-udemy.png"
-import logo_udemy from "../assets/certificates/logo-udemy.png"
 
 // Bungkus komponen dengan forwardRef
 const About = React.forwardRef((props, ref) => {
@@ -21,15 +19,6 @@ const About = React.forwardRef((props, ref) => {
         {id: 4, name: "js", img: js},
         {id: 5, name: "nodejs", img: nodejs},
         {id: 6, name: "react", img: react}
-    ]
-
-    const ceritificate = [
-      {
-        id: 1, title: 'The Data Analyst Course: Complete Data Analyst Bootcamp', bg: dataAnalyst_udemy ,issuer: 'Udemy', logo: logo_udemy, date: '22 Jan 2025', skills: ['python', 'data', 'kontol'], url: 'ude.my/UC-12b3406a-aa26-46e1-a6f2-6cd80d5f5319'
-      },
-      {
-        id: 2, title: 'The Data Analyst Course: Complete Data Analyst Bootcamp', bg: dataAnalyst_udemy ,issuer: 'Udemy', logo: logo_udemy, date: '', skills: [], url: ''
-      },
     ]
 
   return (
@@ -56,14 +45,6 @@ const About = React.forwardRef((props, ref) => {
             </div>
           ))}
         </Marquee>
-        </div>
-        <div className='pt-10 pr-8 pl-10 w-full h-auto pt-10'>
-          <h2 className='text-[var(--primary)] text-3xl pb-8'>Setifikat</h2>
-          <div className='flex flex-col gap-6'>
-            {ceritificate.map((item) => (
-              <Certificate key={item.id} item={item}></Certificate>
-          ))}
-          </div>
         </div>
     </section>
   );
