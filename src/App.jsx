@@ -6,6 +6,7 @@ import Home from "./components/Home.jsx"
 import About from "./components/About.jsx"
 import Certificate from './components/Certificate.jsx'
 import Portfolio from './components/Portfolio.jsx'
+import Contact from './components/Contact.jsx'
 
 function App() {
   const aboutRef = useRef(null)
@@ -21,6 +22,7 @@ function App() {
         <About ref={aboutRef}></About>
         <Certificate/>
         <Portfolio></Portfolio>
+        <Contact/>
       </main>
     </>
   )

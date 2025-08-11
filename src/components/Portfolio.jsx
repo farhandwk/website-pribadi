@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react'; // Hanya butuh import React
+import talenta_digital from "../assets/portfolioImage/talentaDigital.png"
 
-// Komponen untuk ikon, bisa diganti dengan library seperti react-icons
+// Komponen untuk ikon tetap sama
 const GitHubIcon = () => (
   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
     <path fillRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.65.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.942.359.308.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clipRule="evenodd" />
@@ -13,44 +14,43 @@ const LinkIcon = () => (
   </svg>
 );
 
+// Data portofolio sekarang disimpan di sini secara lokal (statis)
+const portfolioItems = [
+    {
+        id: 1,
+        title: 'TalentaDigital.id',
+        description: 'An educational website for student to increase their skill for thriving the after-graduation, built with Node.js, Express, and MongoDB, and deployed on a VPS with Nginx.',
+        imageUrl: talenta_digital,
+        projectUrl: 'https://talentadigital.farhanportfolio.my.id/login',
+        githubUrl: 'https://github.com/farhandwk/TalentaDigital-client',
+        tags: 'React,Node.js,Nginx,VPS'
+    },
+    // {
+    //     id: 2,
+    //     title: 'Personal Website with Vite',
+    //     description: 'A modern and fast personal website built using Vite and React, styled with Tailwind CSS for a responsive and clean user interface.',
+    //     imageUrl: 'https://placehold.co/600x400/1a202c/94a3b8/png?text=Website',
+    //     projectUrl: '#',
+    //     githubUrl: 'https://github.com',
+    //     tags: 'Vite,React,Tailwind CSS'
+    // },
+    // {
+    //     id: 3,
+    //     title: 'Data Analytics Certificate',
+    //     description: 'Completed a comprehensive data analyst bootcamp focusing on Python, data visualization, and statistical analysis techniques.',
+    //     imageUrl: 'https://placehold.co/600x400/1a202c/94a3b8/png?text=Certificate',
+    //     projectUrl: '#',
+    //     githubUrl: '#',
+    //     tags: 'Python,Data Analysis'
+    // }
+];
 
 function Portfolio() {
-    const [portfolioItems, setPortfolioItems] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    
-    // Ganti dengan URL domain API Anda
-    const API_URL = 'https://farhanportfolio.my.id/api/portfolio';
-
-    useEffect(() => {
-        const fetchPortfolioData = async () => {
-            try {
-                const response = await fetch(API_URL);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const data = await response.json();
-                setPortfolioItems(data);
-            } catch (e) {
-                setError(e.message);
-                console.error("Error fetching portfolio data:", e);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchPortfolioData();
-    }, []); // Array kosong memastikan useEffect hanya berjalan sekali
-
-    if (loading) {
-        return <div className="flex justify-center items-center h-screen bg-gray-900 text-white"><p>Loading portfolio...</p></div>;
-    }
-
-    if (error) {
-        return <div className="flex justify-center items-center h-screen bg-gray-900 text-white"><p>Error fetching data: {error}</p></div>;
-    }
+    // Semua logika useEffect, useState untuk loading/error, dan API_URL dihapus.
+    // Komponen ini sekarang menjadi komponen presentasi yang sederhana.
 
     return (
+        // Seluruh JSX dan styling Anda di bawah ini tidak diubah sama sekali.
         <main className="bg-[var(--tertiary)] text-white min-h-screen pt-10 pr-8 pl-10 font-[aeonik]">
             <div className="max-w-7xl mx-auto">
                 <header className="text-start">
@@ -60,10 +60,11 @@ function Portfolio() {
 
                 {/* Grid untuk Kartu Portofolio */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8">
+                    {/* Menggunakan 'portfolioItems' dari array statis di atas */}
                     {portfolioItems.map(item => (
-                        <div key={item.id} className="bg-[var(--primary)] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
+                        <div key={item.id} className="bg-[var(--secondary)] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
                             <img 
-                                src={`https://farhanportfolio.my.id${item.imageUrl}`} 
+                                src={item.imageUrl} // Mengambil URL gambar dari data statis
                                 alt={item.title} 
                                 className="w-full h-56 object-cover" 
                             />
