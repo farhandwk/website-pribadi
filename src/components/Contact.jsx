@@ -66,7 +66,7 @@ function Contact() {
           </a>
 
           {/* LinkedIn */}
-          <a href="www.linkedin.com/in/farhanardhani" target="_blank" rel="noopener noreferrer" className="bg-[var(--primary)] p-6 rounded-lg flex flex-col items-center gap-4 hover:bg-gray-700 transition-colors">
+          <a href="https://www.linkedin.com/in/farhanardhani/" target="_blank" rel="noopener noreferrer" className="bg-[var(--primary)] p-6 rounded-lg flex flex-col items-center gap-4 hover:bg-gray-700 transition-colors">
             <LinkedInIcon />
             <h3 className="text-xl font-semibold">LinkedIn</h3>
             <p className="text-gray-400">Farhan Ardhani</p>
