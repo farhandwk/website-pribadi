@@ -59,21 +59,21 @@ function Contact() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           
           {/* Email */}
-          <a href="mailto:farhandwiki15@gmail.com" className="bg-gray-800 p-6 rounded-lg flex flex-col items-center gap-4 hover:bg-gray-700 transition-colors">
+          <a href="mailto:farhandwiki15@gmail.com" className="bg-[var(--primary)] p-6 rounded-lg flex flex-col items-center gap-4 hover:bg-gray-700 transition-colors">
             <MailIcon />
             <h3 className="text-xl font-semibold">Email</h3>
             <p className="text-gray-400">farhandwiki15@gmail.com</p>
           </a>
 
           {/* LinkedIn */}
-          <a href="www.linkedin.com/in/farhanardhani" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-6 rounded-lg flex flex-col items-center gap-4 hover:bg-gray-700 transition-colors">
+          <a href="www.linkedin.com/in/farhanardhani" target="_blank" rel="noopener noreferrer" className="bg-[var(--primary)] p-6 rounded-lg flex flex-col items-center gap-4 hover:bg-gray-700 transition-colors">
             <LinkedInIcon />
             <h3 className="text-xl font-semibold">LinkedIn</h3>
             <p className="text-gray-400">Farhan Ardhani</p>
           </a>
 
           {/* GitHub */}
-          <a href="https://github.com/farhandwk" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-6 rounded-lg flex flex-col items-center gap-4 hover:bg-gray-700 transition-colors">
+          <a href="https://github.com/farhandwk" target="_blank" rel="noopener noreferrer" className="bg-[var(--primary)] p-6 rounded-lg flex flex-col items-center gap-4 hover:bg-gray-700 transition-colors">
             <GitHubIcon />
             <h3 className="text-xl font-semibold">GitHub</h3>
             <p className="text-gray-400">farhandwk</p>
