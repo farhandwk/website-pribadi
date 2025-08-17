@@ -1,5 +1,6 @@
 import React from 'react';
 import talenta_digital from "../assets/portfolioImage/talentaDigital.png";
+import unteyo_journey from '../assets/portfolioImage/unteyoJourney.png'
 
 // Komponen untuk ikon (tidak diubah)
 const GitHubIcon = () => (
@@ -23,9 +24,18 @@ const portfolioItems = [
         imageUrl: talenta_digital,
         projectUrl: 'https://talentadigital.farhanportfolio.my.id/login',
         githubUrl: 'https://github.com/farhandwk/TalentaDigital-client',
-        tags: 'React,Node.js,Nginx,VPS'
+        tags: 'React,Node.js,Nginx,VPS, Fullstack'
     },
-    // Tambahkan proyek lainnya di sini jika diperlukan
+    {
+        id: 2,
+        title: 'Unteyo Journey',
+        description: 'An educational website for students to increase their skills for thriving after graduation, built with Node.js, Express, and MongoDB, and deployed on a VPS with Nginx.',
+        imageUrl: unteyo_journey,
+        projectUrl: 'https://www.unteyojourney.com/',
+        githubUrl: 'https://github.com/farhandwk/UnteyoJourney',
+        tags: 'React, Tailwind, Frontend'
+    },
+
 ];
 
 function Portfolio() {
