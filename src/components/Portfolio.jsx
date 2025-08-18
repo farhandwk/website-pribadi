@@ -1,6 +1,7 @@
 import React from 'react';
 import talenta_digital from "../assets/portfolioImage/talentaDigital.png";
-import unteyo_journey from '../assets/portfolioImage/unteyoJourney.png'
+import unteyo_journey from '../assets/portfolioImage/unteyoJourney.png';
+import descriptive_correlation from "../assets/portfolioImage/descriptive-correlation.png"
 
 // Komponen untuk ikon (tidak diubah)
 const GitHubIcon = () => (
@@ -20,22 +21,30 @@ const portfolioItems = [
     {
         id: 1,
         title: 'TalentaDigital.id',
-        description: 'An educational website for students to increase their skills for thriving after graduation, built with Node.js, Express, and MongoDB, and deployed on a VPS with Nginx.',
+        description: 'TalentaDigital.id adalah platform edukasi full-stack yang dibangun dengan tumpukan teknologi MERN (React, Node.js, Express, MongoDB), menampilkan sistem autentikasi aman (JWT & Google OAuth) dengan manajemen peran dinamis. Platform ini mengintegrasikan empat fitur utama: platform kursus dengan sertifikat PDF dinamis (Skill Lab), sistem kuis kompetitif (Zona Asah Otak), inkubator ide bisnis dengan bimbingan mentor (Inkubator Wirausaha), dan alat asesmen karier (Kompas Karier). Dengan antarmuka mobile-first yang responsif menggunakan React & Tailwind CSS, aplikasi ini dirancang untuk menangani logika bisnis yang kompleks dari manajemen konten hingga interaksi pengguna. ',
         imageUrl: talenta_digital,
         projectUrl: 'https://talentadigital.farhanportfolio.my.id/login',
-        githubUrl: 'https://github.com/farhandwk/TalentaDigital-client',
+        githubUrl: 'https://github.com/farhandwk/talenta-digital',
         tags: 'React,Node.js,Nginx,VPS, Fullstack'
     },
     {
         id: 2,
         title: 'Unteyo Journey',
-        description: 'An educational website for students to increase their skills for thriving after graduation, built with Node.js, Express, and MongoDB, and deployed on a VPS with Nginx.',
+        description: 'Website Single Page Application yang difungsikan sebagi landing page oleh creative media mahasiswa.',
         imageUrl: unteyo_journey,
         projectUrl: 'https://www.unteyojourney.com/',
         githubUrl: 'https://github.com/farhandwk/UnteyoJourney',
         tags: 'React, Tailwind, Frontend'
     },
-
+    {
+        id: 3,
+        title: 'Descriptive Analytics & Correlation Analysis Tools',
+        description: 'Sebuah aplikasi web full-stack yang dirancang untuk mengubah data survei mentah dari file CSV menjadi wawasan visual secara instan. Dibangun menggunakan React.js untuk frontend dan Flask (Python) untuk backend, aplikasi ini secara cerdas mendeteksi kolom Skala Likert, menghitung statistik deskriptif, dan menghasilkan heatmap korelasi yang interaktif. Proyek ini secara dramatis mengurangi waktu analisis manual dan memberdayakan pengguna non-teknis, seperti tim event organizer, untuk membuat keputusan berbasis data dengan cepat dan efisien.',
+        imageUrl: descriptive_correlation,
+        projectUrl: 'https://analytics.farhanportfolio.my.id/',
+        githubUrl: 'https://github.com/farhandwk/descriptive-correlation',
+        tags: 'Fullstack, Python, Pandas, Data, Flask, React, VPS'
+    },
 ];
 
 function Portfolio() {
@@ -59,7 +68,7 @@ function Portfolio() {
                                 className="w-full h-56 object-cover" 
                             />
                             {/* Kontainer konten kartu dibuat flex-col agar link bisa menempel di bawah */}
-                            <div className="p-6 flex flex-col flex-grow">
+                            <div className="p-6 flex flex-col flex-grow items-start justify-between">
                                 <h3 className="text-xl md:text-2xl font-semibold mb-2 text-[var(--tertiary)]">{item.title}</h3>
                                 
                                 {/* Tags atau Skills */}
@@ -72,7 +81,7 @@ function Portfolio() {
                                 </div>
                                 
                                 {/* Deskripsi dengan flex-grow dan line-clamp */}
-                                <p className="text-[var(--tertiary)]/80 text-sm md:text-base mb-6 flex-grow line-clamp-4">
+                                <p className="text-[var(--tertiary)]/80 text-sm md:text-base mb-6 flex-grow">
                                     {item.description}
                                 </p>
                                 
