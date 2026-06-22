@@ -41,6 +41,7 @@ const portfolioItems = [
         title: 'TalentaDigital.id',
         date: 'Maret 2025',
         category: 'Fullstack Web Development',
+        group: 'Full-Stack Data Engineering',
         description: 'Platform edukasi full-stack berbasis MERN dengan sistem autentikasi JWT & Google OAuth, manajemen peran dinamis, dan empat modul utama pembelajaran.',
         longDescription: [
             'TalentaDigital.id adalah platform edukasi full-stack komprehensif yang dibangun di atas tumpukan teknologi MERN (MongoDB, Express, React, Node.js). Platform ini hadir sebagai solusi terpadu bagi individu yang ingin mengembangkan keterampilan digital secara terstruktur dan terukur.',
@@ -57,6 +58,7 @@ const portfolioItems = [
         title: 'Unteyo Journey',
         date: 'November 2024',
         category: 'Frontend Development',
+        group: 'Full-Stack Data Engineering',
         description: 'Single Page Application yang berfungsi sebagai landing page representatif bagi unit creative media mahasiswa, menampilkan karya dan portofolio tim.',
         longDescription: [
             'Unteyo Journey adalah sebuah Single Page Application (SPA) yang dirancang dan dikembangkan untuk menjadi wajah digital dari komunitas creative media mahasiswa. Situs ini berfungsi sebagai etalase karya, portofolio tim, dan media komunikasi kepada audiens eksternal.',
@@ -73,6 +75,7 @@ const portfolioItems = [
         title: 'Descriptive & Correlation Analytics',
         date: 'Januari 2025',
         category: 'Data Engineering & Fullstack',
+        group: 'Industrial Engineering',
         description: 'Aplikasi web full-stack untuk mengubah data survei CSV menjadi wawasan visual instan — statistik deskriptif, deteksi Skala Likert, dan heatmap korelasi interaktif.',
         longDescription: [
             'Aplikasi ini lahir dari kebutuhan nyata tim event organizer yang harus menganalisis ratusan respons survei secara manual setiap pasca-acara. Dengan tools ini, proses yang biasa memakan waktu berjam-jam dapat diselesaikan dalam hitungan detik hanya dengan mengunggah file CSV.',
@@ -400,14 +403,19 @@ function PortfolioCard({ item, onClick }) {
 // ─── Main Portfolio Component ──────────────────────────────────────────────────
 function Portfolio() {
     const [selectedProject, setSelectedProject] = useState(null);
+    
+    // 1. Tambahkan state untuk melacak tab yang aktif
+    const [activeTab, setActiveTab] = useState('Full-Stack Data Engineering');
+
+    // 2. Buat variabel baru yang hanya berisi data sesuai tab yang dipilih
+    const filteredItems = portfolioItems.filter(item => item.group === activeTab);
 
     return (
         <main className="bg-[var(--tertiary)] text-[var(--primary)] min-h-screen py-16 md:py-24 font-[aeonik]">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
 
                 {/* ── Header */}
-                <header className="text-center mb-14 md:mb-20">
-                    {/* Eyebrow */}
+                <header className="text-center mb-10 md:mb-14">
                     <p
                         className="text-xs font-semibold uppercase tracking-[0.3em] mb-4"
                         style={{ color: '#7B7B7B' }}
@@ -417,7 +425,7 @@ function Portfolio() {
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--primary)] mb-4 leading-tight">
                         My Portfolio
                     </h1>
-                    {/* Decorative line */}
+                    
                     <div className="flex items-center justify-center gap-3 mt-6">
                         <div className="h-px w-12" style={{ background: 'rgba(34,34,34,0.18)' }} />
                         <div className="w-1.5 h-1.5 rounded-full bg-[var(--secondary)]" />
@@ -428,9 +436,36 @@ function Portfolio() {
                     </p>
                 </header>
 
+                {/* ── Toggle Button UI */}
+                <div className="flex justify-center mb-10 md:mb-14">
+                    <div
+                        className="inline-flex items-center p-1.5 rounded-full"
+                        style={{
+                            background: 'rgba(34,34,34,0.04)',
+                            border: '1px solid rgba(34,34,34,0.08)'
+                        }}
+                    >
+                        {['Full-Stack Data Engineering', 'Industrial Engineering'].map((tab) => (
+                            <button
+                                key={tab}
+                                onClick={() => setActiveTab(tab)}
+                                className="px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ease-out"
+                                style={{
+                                    background: activeTab === tab ? 'rgba(34,34,34,0.9)' : 'transparent',
+                                    color: activeTab === tab ? '#ffffff' : '#7B7B7B',
+                                    boxShadow: activeTab === tab ? '0 4px 12px rgba(34,34,34,0.15)' : 'none'
+                                }}
+                            >
+                                {tab}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
                 {/* ── Cards Grid */}
+                {/* 3. Gunakan filteredItems di sini, bukan portfolioItems */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                    {portfolioItems.map(item => (
+                    {filteredItems.map(item => (
                         <PortfolioCard
                             key={item.id}
                             item={item}
