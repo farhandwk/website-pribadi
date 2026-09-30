@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import talenta_digital from "../assets/portfolioImage/talentaDigital.png";
 import unteyo_journey from '../assets/portfolioImage/unteyoJourney.png';
 import descriptive_correlation from "../assets/portfolioImage/descriptive-correlation.png";
+import pos from "../assets/portfolioImage/pos.png"
+import arena from "../assets/portfolioImage/arena.jpg"
 
 // ─── SVG Icons ────────────────────────────────────────────────────────────────
 const GitHubIcon = () => (
@@ -36,57 +38,91 @@ const FolderIcon = () => (
 
 // ─── Static Data ───────────────────────────────────────────────────────────────
 const portfolioItems = [
+    // {
+    //     id: 1,
+    //     title: 'TalentaDigital.id',
+    //     date: 'Maret 2025',
+    //     category: 'Fullstack Web Development',
+    //     group: 'Full-Stack Data Engineering',
+    //     description: 'Platform edukasi full-stack berbasis MERN dengan sistem autentikasi JWT & Google OAuth, manajemen peran dinamis, dan empat modul utama pembelajaran.',
+    //     longDescription: [
+    //         'TalentaDigital.id adalah platform edukasi full-stack komprehensif yang dibangun di atas tumpukan teknologi MERN (MongoDB, Express, React, Node.js). Platform ini hadir sebagai solusi terpadu bagi individu yang ingin mengembangkan keterampilan digital secara terstruktur dan terukur.',
+    //         'Sistem autentikasi dibangun dengan keamanan berlapis menggunakan JWT (JSON Web Token) dan Google OAuth, dilengkapi manajemen peran dinamis (admin, mentor, student). Platform mengintegrasikan empat fitur inti: Skill Lab (kursus bersertifikat PDF dinamis), Zona Asah Otak (sistem kuis kompetitif real-time), Inkubator Wirausaha (inkubator ide dengan bimbingan mentor), dan Kompas Karier (alat asesmen karier berbasis psikometri).',
+    //         'Frontend dibangun dengan React & Tailwind CSS menggunakan pendekatan mobile-first yang sepenuhnya responsif. Backend menggunakan arsitektur RESTful API yang di-deploy di VPS dengan Nginx sebagai reverse proxy, memastikan performa dan skalabilitas tinggi untuk ratusan pengguna konkuren.',
+    //     ],
+    //     imageUrl: talenta_digital,
+    //     projectUrl: 'https://talentadigital.farhanportfolio.my.id/login',
+    //     githubUrl: 'https://github.com/farhandwk/talenta-digital',
+    //     tags: 'React,Node.js,Express,MongoDB,JWT,Nginx,VPS,Fullstack',
+    // },
+    // {
+    //     id: 2,
+    //     title: 'Unteyo Journey',
+    //     date: 'November 2024',
+    //     category: 'Frontend Development',
+    //     group: 'Full-Stack Data Engineering',
+    //     description: 'Single Page Application yang berfungsi sebagai landing page representatif bagi unit creative media mahasiswa, menampilkan karya dan portofolio tim.',
+    //     longDescription: [
+    //         'Unteyo Journey adalah sebuah Single Page Application (SPA) yang dirancang dan dikembangkan untuk menjadi wajah digital dari komunitas creative media mahasiswa. Situs ini berfungsi sebagai etalase karya, portofolio tim, dan media komunikasi kepada audiens eksternal.',
+    //         'Dikembangkan menggunakan React.js dengan Tailwind CSS, antarmuka dirancang agar terasa modern, ringan, dan berdampak. Animasi scroll-triggered, layout yang dinamis, dan tipografi yang dipilih dengan cermat menciptakan pengalaman menjelajah yang berkesan dan profesional.',
+    //         'Proyek ini mengutamakan performa loading yang cepat dan aksesibilitas lintas perangkat, memastikan karya-karya kreatif tim dapat dinikmati dengan optimal baik di layar desktop maupun mobile.',
+    //     ],
+    //     imageUrl: unteyo_journey,
+    //     projectUrl: 'https://www.unteyojourney.com/',
+    //     githubUrl: 'https://github.com/farhandwk/UnteyoJourney',
+    //     tags: 'React,Tailwind CSS,SPA,Frontend,Responsive',
+    // },
+    // {
+    //     id: 3,
+    //     title: 'Descriptive & Correlation Analytics',
+    //     date: 'Januari 2025',
+    //     category: 'Data Engineering & Fullstack',
+    //     group: 'Industrial Engineering',
+    //     description: 'Aplikasi web full-stack untuk mengubah data survei CSV menjadi wawasan visual instan — statistik deskriptif, deteksi Skala Likert, dan heatmap korelasi interaktif.',
+    //     longDescription: [
+    //         'Aplikasi ini lahir dari kebutuhan nyata tim event organizer yang harus menganalisis ratusan respons survei secara manual setiap pasca-acara. Dengan tools ini, proses yang biasa memakan waktu berjam-jam dapat diselesaikan dalam hitungan detik hanya dengan mengunggah file CSV.',
+    //         'Backend dibangun menggunakan Flask (Python) dengan library Pandas dan SciPy untuk komputasi statistik. Sistem secara otomatis mendeteksi kolom berformat Skala Likert, menghitung mean, median, modus, standar deviasi, dan menghasilkan matriks korelasi Pearson yang divisualisasikan sebagai heatmap interaktif menggunakan Plotly.',
+    //         'Frontend React.js menyajikan hasil analisis dalam antarmuka yang bersih dan intuitif, dirancang khusus untuk pengguna non-teknis. Proyek ini di-deploy di VPS dengan arsitektur containerized, memastikan isolasi environment dan kemudahan maintenance jangka panjang.',
+    //     ],
+    //     imageUrl: descriptive_correlation,
+    //     projectUrl: 'https://analytics.farhanportfolio.my.id/',
+    //     githubUrl: 'https://github.com/farhandwk/descriptive-correlation',
+    //     tags: 'Python,Flask,Pandas,SciPy,Plotly,React,VPS,Data Analytics',
+    // },
     {
         id: 1,
-        title: 'TalentaDigital.id',
-        date: 'Maret 2025',
-        category: 'Fullstack Web Development',
+        title:"Point of Sale & Stock Manajemen (UMKM Toko Luwes)",
+        date: 'Februari 2026',
+        category: 'Full-Stack Engineering',
         group: 'Full-Stack Data Engineering',
-        description: 'Platform edukasi full-stack berbasis MERN dengan sistem autentikasi JWT & Google OAuth, manajemen peran dinamis, dan empat modul utama pembelajaran.',
+        description: 'Full-stack Web App yang berfungsi sebagai Point of Sales (kasir) dan Stock Management dengan data yang terintegrasi.',
         longDescription: [
-            'TalentaDigital.id adalah platform edukasi full-stack komprehensif yang dibangun di atas tumpukan teknologi MERN (MongoDB, Express, React, Node.js). Platform ini hadir sebagai solusi terpadu bagi individu yang ingin mengembangkan keterampilan digital secara terstruktur dan terukur.',
-            'Sistem autentikasi dibangun dengan keamanan berlapis menggunakan JWT (JSON Web Token) dan Google OAuth, dilengkapi manajemen peran dinamis (admin, mentor, student). Platform mengintegrasikan empat fitur inti: Skill Lab (kursus bersertifikat PDF dinamis), Zona Asah Otak (sistem kuis kompetitif real-time), Inkubator Wirausaha (inkubator ide dengan bimbingan mentor), dan Kompas Karier (alat asesmen karier berbasis psikometri).',
-            'Frontend dibangun dengan React & Tailwind CSS menggunakan pendekatan mobile-first yang sepenuhnya responsif. Backend menggunakan arsitektur RESTful API yang di-deploy di VPS dengan Nginx sebagai reverse proxy, memastikan performa dan skalabilitas tinggi untuk ratusan pengguna konkuren.',
+            'Website aplikasi kasir (Point of Sale) dan manajemen stok ini dirancang khusus untuk memenuhi kebutuhan operasional Usaha Mikro, Kecil, dan Menengah (UMKM) secara praktis dan terintegrasi. Sistem ini mempermudah pelaku usaha dalam mengelola transaksi penjualan harian sekaligus memantau ketersediaan barang secara real-time. Dengan alur pencatatan yang otomatis, potensi kesalahan input serta ketidaksesuaian stok dapat diminimalkan sehingga pengelolaan bisnis menjadi jauh lebih efisien.',
+            'Salah satu keunggulan utama dari platform ini adalah fleksibilitas dalam pengelolaan produk dan pencetakan. Sistem telah mendukung penggunaan satuan desimal, yang sangat berguna bagi produk curah seperti telur ayam, beras, atau bumbu kiloan. Dari sisi operasional di kasir, aplikasi ini dapat dihubungkan langsung dengan printer thermal Bluetooth untuk mencetak bukti pembayaran fisik. Selain itu, tersedia pula fitur integrasi WhatsApp yang memungkinkan kasir mengirimkan struk belanja berbentuk digital secara online langsung ke nomor pelanggan.',
+            'Untuk mendukung pengambilan keputusan bisnis yang lebih tepat, aplikasi ini dilengkapi dengan fitur analytics serta riwayat transaksi yang rinci. Melalui grafik dan rekapitulasi data penjualan, pemilik usaha dapat dengan mudah mengidentifikasi produk terlaris, memantau tren pendapatan harian maupun bulanan, hingga mengevaluasi riwayat transaksi secara menyeluruh. Kehadiran fitur analitik ini menjadikan platform tidak hanya sekadar alat bantu kasir, tetapi juga instrumen strategis untuk pengembangan bisnis UMKM ke depan.'
         ],
-        imageUrl: talenta_digital,
-        projectUrl: 'https://talentadigital.farhanportfolio.my.id/login',
-        githubUrl: 'https://github.com/farhandwk/talenta-digital',
-        tags: 'React,Node.js,Express,MongoDB,JWT,Nginx,VPS,Fullstack',
+        imageUrl: pos,
+        projectUrl: "https://toko-luwes-portfolio-git-main-farhandwks-projects.vercel.app/",
+        githubUrl: "https://github.com/farhandwk/toko-luwes-portfolio.git",
+        tags: 'Next JS, Supabase, Postqre, Business'
     },
     {
         id: 2,
-        title: 'Unteyo Journey',
-        date: 'November 2024',
-        category: 'Frontend Development',
-        group: 'Full-Stack Data Engineering',
-        description: 'Single Page Application yang berfungsi sebagai landing page representatif bagi unit creative media mahasiswa, menampilkan karya dan portofolio tim.',
-        longDescription: [
-            'Unteyo Journey adalah sebuah Single Page Application (SPA) yang dirancang dan dikembangkan untuk menjadi wajah digital dari komunitas creative media mahasiswa. Situs ini berfungsi sebagai etalase karya, portofolio tim, dan media komunikasi kepada audiens eksternal.',
-            'Dikembangkan menggunakan React.js dengan Tailwind CSS, antarmuka dirancang agar terasa modern, ringan, dan berdampak. Animasi scroll-triggered, layout yang dinamis, dan tipografi yang dipilih dengan cermat menciptakan pengalaman menjelajah yang berkesan dan profesional.',
-            'Proyek ini mengutamakan performa loading yang cepat dan aksesibilitas lintas perangkat, memastikan karya-karya kreatif tim dapat dinikmati dengan optimal baik di layar desktop maupun mobile.',
-        ],
-        imageUrl: unteyo_journey,
-        projectUrl: 'https://www.unteyojourney.com/',
-        githubUrl: 'https://github.com/farhandwk/UnteyoJourney',
-        tags: 'React,Tailwind CSS,SPA,Frontend,Responsive',
-    },
-    {
-        id: 3,
-        title: 'Descriptive & Correlation Analytics',
-        date: 'Januari 2025',
-        category: 'Data Engineering & Fullstack',
+        title: 'Optimasi Antran Supermarket: Pendekatan Data-Driven (Python & RockWell Arena)',
+        date: 'Januari 2026',
+        category: 'Industrial Data Engineering',
         group: 'Industrial Engineering',
-        description: 'Aplikasi web full-stack untuk mengubah data survei CSV menjadi wawasan visual instan — statistik deskriptif, deteksi Skala Likert, dan heatmap korelasi interaktif.',
+        description: 'Identifikasi masalah dengan pendekatan Feature Engineering yang memanfaatkan insight tersembunyi pada dataset.',
         longDescription: [
-            'Aplikasi ini lahir dari kebutuhan nyata tim event organizer yang harus menganalisis ratusan respons survei secara manual setiap pasca-acara. Dengan tools ini, proses yang biasa memakan waktu berjam-jam dapat diselesaikan dalam hitungan detik hanya dengan mengunggah file CSV.',
-            'Backend dibangun menggunakan Flask (Python) dengan library Pandas dan SciPy untuk komputasi statistik. Sistem secara otomatis mendeteksi kolom berformat Skala Likert, menghitung mean, median, modus, standar deviasi, dan menghasilkan matriks korelasi Pearson yang divisualisasikan sebagai heatmap interaktif menggunakan Plotly.',
-            'Frontend React.js menyajikan hasil analisis dalam antarmuka yang bersih dan intuitif, dirancang khusus untuk pengguna non-teknis. Proyek ini di-deploy di VPS dengan arsitektur containerized, memastikan isolasi environment dan kemudahan maintenance jangka panjang.',
+            'Proyek ini berfokus pada pengembangan sistem simulasi komputer untuk menganalisis dan mengoptimalkan operasional bisnis retail, yaitu pada entitas Supermarket Myanmar. Dengan memanfaatkan data mentah transaksi dari Kaggle, proyek ini merancang model simulasi antrean dan alur kerja menggunakan perangkat lunak Rockwell Arena (.doe). Simulasi ini bertujuan untuk memberikan gambaran komprehensif mengenai tingkat kesibukan fasilitas, durasi waktu tunggu pelanggan, hingga utilitas kasir dalam melayani pembeli.',
+            'Sistem yang dibangun tidak hanya sekadar memodelkan kondisi eksisting, tetapi juga melakukan evaluasi terhadap performa operasional supermarket. Melalui pendekatan studi berbasis simulasi ini, variasi waktu kedatangan pelanggan serta dinamika waktu pelayanan di area kasir dapat dianalisis secara terukur. Hasil pemodelan ini membantu dalam mengidentifikasi potensi kemacetan antrean (bottleneck) serta ketidakefisienan alur belanja yang kerap terjadi pada jam-jam sibuk.',
+            'Melalui analisis data simulasi tersebut, proyek ini memberikan rekomendasi strategis bagi manajemen dalam menentukan alokasi sumber daya yang optimal. Pemilik atau pengelola bisnis dapat memanfaatkan hasil simulasi untuk merencanakan jumlah pembukaan meja kasir yang ideal, mengatur jadwal kerja staf, hingga meningkatkan kualitas layanan tanpa harus menanggung risiko biaya dari uji coba langsung di lapangan. Kehadiran model ini menjadikan pengambilan keputusan operasional pada bisnis retail menjadi lebih terukur, efisien, dan berbasis data.'
         ],
-        imageUrl: descriptive_correlation,
-        projectUrl: 'https://analytics.farhanportfolio.my.id/',
-        githubUrl: 'https://github.com/farhandwk/descriptive-correlation',
-        tags: 'Python,Flask,Pandas,SciPy,Plotly,React,VPS,Data Analytics',
-    },
+        imageUrl: arena,
+        projectUrl: 'https://www.linkedin.com/posts/farhanardhani_bagaimana-jika-antrean-supermarket-bisa-diprediksi-activity-7410051159505211392-Y3Cr',
+        githubUrl: 'https://www.linkedin.com/posts/farhanardhani_bagaimana-jika-antrean-supermarket-bisa-diprediksi-activity-7410051159505211392-Y3Cr',
+        tags: 'Arena, Simulation, Data, Python'
+    }
 ];
 
 // ─── Modal Component ───────────────────────────────────────────────────────────
